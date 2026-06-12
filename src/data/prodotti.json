@@ -1,0 +1,5 @@
+[
+  { "id": 1, "nome": "Tastiera meccanica", "prezzo": 89.99 },
+  { "id": 2, "nome": "Mouse wireless", "prezzo": 34.50 },
+  { "id": 3, "nome": "Monitor 27\"", "prezzo": 299.00 }
+]
