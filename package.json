@@ -1,0 +1,24 @@
+{
+  "name": "nanodegree-webdev",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/os3albert/front-end-everydayproject#readme",
+  "bugs": {
+    "url": "https://github.com/os3albert/front-end-everydayproject/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/os3albert/front-end-everydayproject.git"
+  },
+  "license": "ISC",
+  "author": "albert bici",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch main.js",
+    "test": "echo 'no test specified' && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
