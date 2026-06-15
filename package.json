@@ -16,6 +16,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node --watch src/index.js",
-    "test": "echo 'no test specified' && exit 1"
+    "lint": "eslint .",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.5.0",
+    "globals": "^17.6.0"
   }
 }

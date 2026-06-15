@@ -43,7 +43,7 @@ const server = http.createServer(async (req, res) => {
           break;
 
         // path: /prodotti/:id
-        case /^\/prodotti\/([\d]+)$/.test(req.url):
+        case /^\/prodotti\/([\d]+)$/.test(req.url): {
           // see: https://forum.freecodecamp.org/t/problem-with-regular-expressions/360005
           const extractStr = req.url;
           const codingRegex = /\d+/;
@@ -60,6 +60,7 @@ const server = http.createServer(async (req, res) => {
             res.end(JSON.stringify({error: codeError.message}))
           }
           break;
+        }
 
         // path: /status
         case /^\/status$/.test(req.url):
