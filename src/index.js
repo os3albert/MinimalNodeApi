@@ -21,24 +21,28 @@ const server = http.createServer(async (req, res) => {
     case "GET":
       switch (true) {
 
+        // path: /
         case /^\/$/.test(req.url):
           statusCode = 200;
           res.writeHead(statusCode);
           res.end(JSON.stringify({ message: "Server attivo" }));
           break;
 
+        // path: /about
         case /^\/about$/.test(req.url):
           statusCode = 200;
           res.writeHead(statusCode);
           res.end(JSON.stringify({ app: "node-server", versione: "1.0.0" }));
           break;
 
+        // path: /prodotti
         case /^\/prodotti$/.test(req.url):
           statusCode = 200;
           res.writeHead(statusCode);
           res.end(JSON.stringify(await ProductService.getProducts()));
           break;
 
+        // path: /prodotti/:id
         case /^\/prodotti\/([\d]+)$/.test(req.url):
           // see: https://forum.freecodecamp.org/t/problem-with-regular-expressions/360005
           const extractStr = req.url;
@@ -57,6 +61,7 @@ const server = http.createServer(async (req, res) => {
           }
           break;
 
+        // path: /status
         case /^\/status$/.test(req.url):
           statusCode = 200;
           res.writeHead(statusCode);
