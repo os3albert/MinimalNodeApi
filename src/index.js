@@ -20,28 +20,31 @@ const server = http.createServer(async (req, res) => {
     case "GET":
       switch (true) {
         // path: /
-        case /^\/$/.test(req.url):
+        case /^\/$/.test(req.url): {
           statusCode = 200;
           res.writeHead(statusCode);
           res.end(JSON.stringify({ message: "Server attivo" }));
           break;
+        }
 
         // path: /about
-        case /^\/about$/.test(req.url):
+        case /^\/about$/.test(req.url): {
           statusCode = 200;
           res.writeHead(statusCode);
           res.end(JSON.stringify({ app: "node-server", versione: "1.0.0" }));
           break;
+        }
 
         // path: /prodotti
-        case /^\/prodotti$/.test(req.url):
+        case /^\/prodotti$/.test(req.url): {
           statusCode = 200;
           res.writeHead(statusCode);
           res.end(JSON.stringify(await ProductService.getProducts()));
           break;
+        }
 
         // path: /prodotti/:id
-        case /^\/prodotti\/([\d]+)$/.test(req.url):
+        case /^\/prodotti\/([\d]+)$/.test(req.url): {
           // see: https://forum.freecodecamp.org/t/problem-with-regular-expressions/360005
           const extractStr = req.url;
           const codingRegex = /\d+/;
@@ -58,18 +61,21 @@ const server = http.createServer(async (req, res) => {
             res.end(JSON.stringify({ error: codeError.message }));
           }
           break;
+        }
 
         // path: /status
-        case /^\/status$/.test(req.url):
+        case /^\/status$/.test(req.url): {
           statusCode = 200;
           res.writeHead(statusCode);
           res.end(JSON.stringify(SystemService));
           break;
+        }
 
-        default:
+        default: {
           res.writeHead(statusCode);
           res.end(JSON.stringify({ error: "Rotta non trovata" }));
           break;
+        }
       }
       break;
 
