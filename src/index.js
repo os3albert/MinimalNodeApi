@@ -17,10 +17,8 @@ const server = http.createServer(async (req, res) => {
 
   // req.method → 'GET', 'POST', ...
   switch (req.method) {
-
     case "GET":
       switch (true) {
-
         // path: /
         case /^\/$/.test(req.url):
           statusCode = 200;
@@ -43,7 +41,7 @@ const server = http.createServer(async (req, res) => {
           break;
 
         // path: /prodotti/:id
-        case /^\/prodotti\/([\d]+)$/.test(req.url): {
+        case /^\/prodotti\/([\d]+)$/.test(req.url):
           // see: https://forum.freecodecamp.org/t/problem-with-regular-expressions/360005
           const extractStr = req.url;
           const codingRegex = /\d+/;
@@ -57,10 +55,9 @@ const server = http.createServer(async (req, res) => {
             const codeError = JSON.parse(error.message);
             statusCode = codeError.status;
             res.writeHead(statusCode);
-            res.end(JSON.stringify({error: codeError.message}))
+            res.end(JSON.stringify({ error: codeError.message }));
           }
           break;
-        }
 
         // path: /status
         case /^\/status$/.test(req.url):
@@ -71,7 +68,7 @@ const server = http.createServer(async (req, res) => {
 
         default:
           res.writeHead(statusCode);
-          res.end(JSON.stringify({ error: "Rotta non trovata" }))
+          res.end(JSON.stringify({ error: "Rotta non trovata" }));
           break;
       }
       break;
